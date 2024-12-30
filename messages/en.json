@@ -1,0 +1,37 @@
+{
+    "HomePage": {
+        "title": "Helaman's portifolio",
+        "mainHeader": "Hi, I am Helaman Ewerton",
+        "subHeader": "Welcome to discover what I have been building",
+        "userImageAlt": "Helaman Ewerton",
+        "technHeader": "Technologies",
+        "emailSubscribeHeading": "Stay up to date",
+        "emailSubscribeSubHeading": "Get notified when I publish something new, and unsubscribe at any time.",
+        "emailSubscribeButtonText": "Subscribe",
+        "emailSubscribeButtonLoadingText": "Subscribing...",
+        "emailSubscribeConfirmationToast": "You have successfully subscribed!",
+        "introText": "Highly skilled Software Engineer specializing in Javascript, Typescript, React, and CSS. Proven track record of delivering high-quality web applications that create efficient and user-friendly solutions. I have played a crucial role in contributing to the success of companies such as BASF, Labvantage Inc., Emive, and PepsiCo. My experience includes building projects from scratch and joining ongoing initiatives to refactor, rebuild, and optimize for superior performance. With a keen eye for detail and a commitment to excellence, I bring a valuable blend of technical expertise and collaborative problem-solving to every project.",
+        "workCardTitle": "Work",
+        "skillsCardTitle": "Skills",
+        "articleLinkName": "Read article"
+    },
+    "AboutPage": {
+        "title": "Passionate Software Engineer with a Love for Innovation",
+        "firstParagraph": "I am a highly skilled Software Engineer with a track record of delivering high-quality web applications. My experience includes pivotal contributions to renowned companies such as BASF, Labvantage Inc., EmiveCo, and PepsiCo",
+        "listTitle": "My expertise includes:",
+        "list": "Frontend Development: React, Next.js, Typescript, HTML5, CSS (Tailwind, SCSS, Styled-Components, ChakraUI, PandaCSS, Bootstrap), and Express\nState Management: Redux, Zustand and Jotai\nBackend Technologies: NodeJS, Prisma, Drizzle, PlanetScale, Firebase, MongoDB, MySQL, and SQL Server\nDevOps Culture: Azure DevOps Tools, CI/CD with Azure and GitHub Actions\nComponent Development: Writing high-performing and reusable components with Storybook and PreviewJS\nCode Quality: Refactoring, reviewing, debugging code, and writing tests with Cypress and Jest",
+        "paragraphs": "My expertise with React and Next.js has allowed me to build dynamic and highly responsive user interfaces. I have developed complex single-page applications (SPAs) and server-side rendered (SSR) applications, ensuring optimal performance and user experience. Utilizing Typescript has enabled me to write robust and type-safe code, reducing bugs and enhancing maintainability. My deep understanding of Express has been crucial in developing scalable backend services and APIs, supporting the seamless integration of frontend and backend functionalities.\nI have extensive experience in both creating and delivering projects from scratch and joining ongoing projects to refactor, rebuild, and ensure delivery with quality and performance. My proficiency in utilizing Scrum and agile methodologies ensures that projects are completed on time and to the highest standard. I place a strong emphasis on tracking all code with the best Git practices and tools.\nAs the founder, teacher, and mentor at Iniciativa Code!, a nonprofit organization, I guide individuals in technology for free. I have successfully assisted dozens of people in Brazil to start their tech careers through free courses, mentorship, and networking with tech companies.\nMy journey has also involved optimizing development processes and implementing best practices to enhance code quality and performance. By focusing on writing reusable and high-performing components, I ensure that applications are scalable and maintainable. My experience with modern CSS frameworks and libraries, such as Tailwind, SCSS, Styled-Components, ShadCN, ArkUI, PandaCss, ChakraUI, and Bootstrap, has allowed me to create visually appealing and user-friendly interfaces.\nI am dedicated to continuously learning and growing in the field of software engineering, always aiming to deliver exceptional results and drive innovation.",
+        "githubText": "Check out my GitHub",
+        "linkedinText": "Connect with me on LinkedIn"
+    },
+    "UsesPage": {
+        "title": "Technologies I Use and Recommend",
+        "subtitle": "I have spent years working with various technologies and tools to build high-quality web applications. Here are some of the tools and technologies that I use and recommend."
+    },
+    "BlogPage": {
+        "subtitle": "I write articles on various topics related to software engineering, web development, and technology. Here are some of my latest articles."
+    },
+    "Settings": {
+        "authorName": "Helaman Ewerton"
+    }
+}

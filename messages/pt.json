@@ -1,0 +1,37 @@
+{
+    "HomePage": {
+        "title": "Meu portifolio",
+        "mainHeader": "Oi, Meu nome é Helamã",
+        "subHeader": "Bem vindo para descobrir o que eu tenho construído",
+        "userImageAlt": "Helamã Ewerton",
+        "technHeader": "Technologies",
+        "emailSubscribeHeading": "Fique atualizado",
+        "emailSubscribeSubHeading": "Seja notificado quando eu publicar algo novo, e cancele a inscrição a qualquer momento.",
+        "emailSubscribeButtonText": "Inscrever-se",
+        "emailSubscribeButtonLoadingText": "Inscrevendo...",
+        "emailSubscribeConfirmationToast": "Você se inscreveu com sucesso!",
+        "introText": "Desenvolvedor de Software altamente qualificado, especializado em JavaScript, TypeScript, React e CSS. Histórico comprovado de entrega de aplicações web de alta qualidade que criam soluções eficientes e amigáveis para o usuário. Desempenhei um papel crucial na contribuição para o sucesso de empresas como BASF, Labvantage Inc., Emive e PepsiCo. Minha experiência inclui construir projetos do zero, bem como participar de iniciativas em andamento para refatorar, reconstruir e otimizar para um desempenho superior. Com um olhar atento aos detalhes e um compromisso com a excelência, trago uma combinação valiosa de expertise técnica e resolução colaborativa de problemas para cada projeto.",
+        "workCardTitle": "Experiência",
+        "skillsCardTitle": "Principais experiências",
+        "articleLinkName": "Leia mais"
+    },
+    "AboutPage": {
+        "title": "Engenheiro de Software Apaixonado por Inovação",
+        "firstParagraph": "Sou um Engenheiro de Software altamente qualificado com um histórico de entrega de aplicações web de alta qualidade. Minha experiência inclui contribuições cruciais para empresas renomadas como BASF, Labvantage Inc., EmiveCo e PepsiCo",
+        "listTitle": "Minha expertise inclui:",
+        "list": "Desenvolvimento Frontend: React, Next.js, Typescript, HTML5, CSS (Tailwind, SCSS, Styled-Components, ChakraUI, PandaCSS, Bootstrap) e Express\nGerenciamento de Estado: Redux, Zustand e Jotai\nTecnologias Backend: NodeJS, Prisma, Drizzle, PlanetScale, Firebase, MongoDB, MySQL e SQL Server\nCultura DevOps: Ferramentas do Azure DevOps, CI/CD com Azure e GitHub Actions\nDesenvolvimento de Componentes: Escrever componentes de alto desempenho e reutilizáveis com Storybook e PreviewJS\nQualidade de Código: Refatoração, revisão, depuração de código e escrita de testes com Cypress e Jest",
+        "paragraphs": "Minha expertise com React e Next.js me permitiu construir interfaces de usuário dinâmicas e altamente responsivas. Desenvolvi aplicações de página única complexas (SPAs) e aplicações renderizadas no lado do servidor (SSR), garantindo desempenho e experiência do usuário ótimos. Utilizar o Typescript me permitiu escrever código robusto e com tipagem segura, reduzindo bugs e aumentando a mantenibilidade. Meu entendimento profundo de Express tem sido crucial no desenvolvimento de serviços backend escaláveis e APIs, suportando a integração perfeita das funcionalidades frontend e backend.\nTenho ampla experiência tanto na criação e entrega de projetos do zero quanto na participação em projetos em andamento para refatorar, reconstruir e garantir a entrega com qualidade e desempenho. Minha proficiência em utilizar metodologias Scrum e ágeis assegura que os projetos sejam concluídos no prazo e com os mais altos padrões. Coloco grande ênfase no rastreamento de todo o código com as melhores práticas e ferramentas de Git.\nComo fundador, professor e mentor na Iniciativa Code!, uma organização sem fins lucrativos, oriento pessoas em tecnologia gratuitamente. Consegui ajudar dezenas de pessoas no Brasil a iniciar suas carreiras tecnológicas através de cursos gratuitos, mentoria e networking com empresas de tecnologia.\nMinha jornada também envolveu a otimização de processos de desenvolvimento e a implementação das melhores práticas para melhorar a qualidade e o desempenho do código. Ao focar na escrita de componentes reutilizáveis e de alto desempenho, garanto que as aplicações sejam escaláveis e de fácil manutenção. Minha experiência com frameworks e bibliotecas modernas de CSS, como Tailwind, SCSS, Styled-Components, ShadCN, ArkUI, PandaCSS, ChakraUI e Bootstrap, me permitiu criar interfaces visualmente atraentes e amigáveis ao usuário.\nEstou dedicado a aprender e crescer continuamente no campo da engenharia de software, sempre buscando entregar resultados excepcionais e impulsionar a inovação.",
+        "githubText": "Confira meu GitHub",
+        "linkedinText": "Conecte-se comigo no LinkedIn"
+    },
+    "UsesPage": {
+        "title": "Tecnologias que eu uso e recomendo",
+        "subtitle": "Passei anos trabalhando com várias tecnologias e ferramentas para construir aplicações web de alta qualidade. Aqui estão algumas das ferramentas e tecnologias que eu uso e recomendo."
+    },
+    "BlogPage": {
+        "subtitle": "Escrevo artigos sobre vários tópicos relacionados à engenharia de software, desenvolvimento web e tecnologia. Aqui estão alguns dos meus artigos mais recentes."
+    },
+    "Settings": {
+        "authorName": "Helamã Ewerton"
+    }
+}

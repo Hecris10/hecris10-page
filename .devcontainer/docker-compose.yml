@@ -1,0 +1,10 @@
+version: '3.8'
+# based on https://github.com/devcontainers/templates
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
