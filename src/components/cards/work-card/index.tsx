@@ -1,11 +1,12 @@
 import { BriefcaseBusiness } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useGetLocale } from "~/hooks/useGetLocale";
+import { getLocale } from "~/hooks/useGetLocale";
 import { getExperiences } from "~/services/firestore/experiences";
 
 export const WorkCard = async () => {
-    const locale = useGetLocale();
+    const locale = getLocale();
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const content = useTranslations("HomePage");
     const title = content("workCardTitle");
 

@@ -5,6 +5,7 @@ import { cn } from "~/lib/utils";
 import { getSkills } from "~/services/firestore/skills";
 
 export const SkillsCard = async () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const content = useTranslations("HomePage");
     const title = content("skillsCardTitle");
 
