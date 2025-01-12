@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
 import { getUserLocale } from "~/actions/locale";
 import { HomePage } from "~/components/pages/home-page";
 import { MainContent } from "~/components/pages/home-page/main-content/main-content";
@@ -15,10 +14,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-    const content = await getTranslations("HomePage");
-    const viewProjectsLinkName = content("projectsLink");
-    const introText = content("introText");
-
     return (
         <>
             <MainContent />

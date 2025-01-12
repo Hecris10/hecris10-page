@@ -1,11 +1,11 @@
 import { Metadata } from "next";
+import { getUserLocale } from "~/actions/locale";
 import { ProjectCard } from "~/components/cards/project-card";
 import { metadataSettings } from "~/config/metadata";
-import { getLocale } from "~/hooks/useGetLocale";
 import { getProjects } from "~/services/firestore/projects";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const locale = getLocale() as keyof typeof metadataSettings.home.title;
+    const locale = (await getUserLocale()) as keyof typeof metadataSettings.home.title;
     const title = metadataSettings.projects.title[locale];
     const description = metadataSettings.projects.description[locale];
 
@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Projects() {
-    const locale = getLocale();
+    const locale = await getUserLocale();
     const projects = await getProjects(locale);
 
     return (

@@ -1,26 +1,26 @@
 import { Metadata } from "next";
-import { getLocale } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
+import { getUserLocale } from "~/actions/locale";
 import { metadataSettings } from "~/config/metadata";
-import { PageProps } from "~/d";
 import { getBlogsByRange } from "~/services/firestore/blogs";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const locale = (await getLocale()) as keyof typeof metadataSettings.home.title;
+    const locale = (await getUserLocale()) as keyof typeof metadataSettings.home.title;
     const title = metadataSettings.blog.title[locale];
     const description = metadataSettings.blog.description[locale];
 
     return { title: `Helaman Ewerton | ${title}`, description };
 }
 
-const maxPostsPerPage = 6;
+export default async function Blog(props: PageProps) {
+    const searchParams = await props.searchParams;
+    const page = searchParams.page ? parseInt(searchParams.page as string) : 1;
 
-export default async function Blog({ searchParams, params }: PageProps) {
-    const page = searchParams.page ? parseInt(searchParams.page) : 1;
+    const locale = await getUserLocale();
     const realStartPageIndex = (page - 1) * 6;
     const realEndPageIndex = realStartPageIndex + 6;
-    const data = await getBlogsByRange("en", realStartPageIndex, realEndPageIndex);
+    const data = await getBlogsByRange(locale, realStartPageIndex, realEndPageIndex);
 
     return (
         <div className="w-full gap-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
@@ -39,7 +39,7 @@ export default async function Blog({ searchParams, params }: PageProps) {
                             src={post.image}
                         />
                     </div>
-                    <p className="text-md text-zinc-600 dark:text-zinc-400 dark:">{`${post.short.slice(
+                    <p className="text-md text-zinc-600 dark:text-zinc-400 dark:">{`${post.short?.slice(
                         0,
                         300
                     )}...`}</p>

@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
-import { getLocale } from "next-intl/server";
 import Image from "next/image";
+import { getUserLocale } from "~/actions/locale";
 import LetterPullup from "~/components/magicui/letter-pullup";
 import { LinksSection } from "~/components/pages/about-me-page/links-section";
 import { metadataSettings } from "~/config/metadata";
 import { personalData } from "~/config/personal-data";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const locale = (await getLocale()) as keyof typeof metadataSettings.home.title;
+    const locale = (await getUserLocale()) as keyof typeof metadataSettings.home.title;
     const title = metadataSettings.about.title[locale];
     const description = metadataSettings.about.description[locale];
 
