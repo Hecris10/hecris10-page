@@ -1,40 +1,23 @@
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Post } from "~/components/pages/blog-page/blog-post";
-import { PageProps } from "~/d";
-import { getLocale } from "~/hooks/useGetLocale";
+import { getUserLocale } from "~/actions/locale";
 import { getPostById } from "~/services/firestore/blogs";
 
-// export const dynamicParams = true;
-
-// export async function generateStaticParams() {
-//     const posts = await getBlogs("en");
-
-//     return posts.map((post) => ({
-//         slug: post.id,
-//     }));
-// }
-
-export async function generateMetadata(
-    { params, searchParams }: PageProps,
-    parent: ResolvingMetadata
-): Promise<Metadata> {
-    console.log(params, searchParams);
-    const postId = params.slug;
-    const locale = getLocale();
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+    const params = await props.params;
+    const slug = params.slug;
+    const postId = slug;
+    const locale = await getUserLocale();
 
     const post = await getPostById(postId, locale);
 
-    console.log({
-        title: `Helaman Ewerton | ${post?.title}`,
-        description: "Blog page",
-        locale: locale,
-    });
     return { title: `Helaman Ewerton | ${post?.title}`, description: post?.short };
 }
 
-export default async function Blog({ params }: PageProps) {
-    const locale = getLocale();
+export default async function Blog(props: PageProps) {
+    const params = await props.params;
+    const locale = await getUserLocale();
     const postId = params.slug;
 
     if (!postId) {
@@ -47,5 +30,23 @@ export default async function Blog({ params }: PageProps) {
         notFound();
     }
 
-    return <Post post={post} />;
+    return (
+        <div className="w-full">
+            <h1>{post.title}</h1>
+            <Image
+                fetchPriority="high"
+                priority
+                src={post.image}
+                alt={post.title}
+                className="mx-auto"
+                width={400}
+                height={400}
+            />
+            <div className="text-justify" dangerouslySetInnerHTML={{ __html: post.body }} />
+            <div className="w-full flex justify-between">
+                <p className="font-bold text-teal-600">{post.date}</p>
+                <p className="font-bold text-teal-600">{"Helaman Ewerton"}</p>
+            </div>
+        </div>
+    );
 }

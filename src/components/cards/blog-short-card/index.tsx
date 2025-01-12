@@ -12,7 +12,7 @@ export const BlogShortCard = ({ post, locale }: { post: BlogPostShort; locale: s
             {/* date formated by locale */}
             <p className="text-sm text-zinc-400 border-l-2 px-6 border-zinc-404 ">{post.date}</p>
             <h3 className="my-2">{post.title}</h3>
-            <p className="text-justify text-zinc-600 dark:text-zinc-400 mb-2">{`${post.short.slice(
+            <p className="text-justify text-zinc-600 dark:text-zinc-400 mb-2">{`${post.short?.slice(
                 0,
                 350
             )}...`}</p>

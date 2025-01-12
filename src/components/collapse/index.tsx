@@ -1,11 +1,14 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+
 import Image from "next/image";
 import { useState } from "react";
+import { Locale } from "~/config/localization";
 import { technologies } from "~/config/technologies";
 import { cn, getIcon } from "~/lib/utils";
-export const CollapseTechnologies = () => {
+
+export const CollapseTechnologies = ({ locale }: { locale: Locale }) => {
     const [index, setIndex] = useState(0);
     const content = useTranslations("HomePage");
     const technologyHeader = content("technHeader");
@@ -63,7 +66,7 @@ export const CollapseTechnologies = () => {
                                 </h3>{" "}
                                 {/* Adjust text size as needed */}
                                 <p className="text-md   text-shadow max-w-[390px]">
-                                    {tech.description}
+                                    {tech.description[locale as keyof typeof tech.description]}
                                 </p>{" "}
                                 {/* Adjust text size as needed */}
                             </div>

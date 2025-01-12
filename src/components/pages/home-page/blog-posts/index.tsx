@@ -1,9 +1,9 @@
+import { getUserLocale } from "~/actions/locale";
 import { BlogShortCard } from "~/components/cards/blog-short-card";
-import { getLocale } from "~/hooks/useGetLocale";
 import { getLastThreeBlogPosts } from "~/services/firestore/blogs";
 
 export const BlogPosts = async () => {
-    const locale = getLocale();
+    const locale = await getUserLocale();
     const posts = await getLastThreeBlogPosts(locale);
 
     return (

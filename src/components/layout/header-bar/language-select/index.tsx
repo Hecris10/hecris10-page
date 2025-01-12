@@ -3,8 +3,9 @@
 import { ChevronDown } from "lucide-react";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { changeLocale } from "~/actions";
+import { useEffect, useState, useTransition } from "react";
+import { setUserLocale } from "~/actions/locale";
+
 import {
     Select,
     SelectContent,
@@ -27,16 +28,21 @@ export default function LanguageSelect({
     const locale = useLocale();
     const router = useRouter();
     const path = usePathname();
+
+    console.log({ locale });
+
     const [isClient, setIsClient] = useState(false);
+    const [, startTransition] = useTransition();
 
     const handleLang = async (lang: string) => {
         if (lang === locale) {
             router.push(path);
         }
         if (localizations.findIndex((l) => l.locale === lang) !== -1) {
-            await changeLocale(lang);
-
-            router.push(path);
+            startTransition(async () => {
+                await setUserLocale(lang);
+                router.push(path);
+            });
         }
     };
 
@@ -61,24 +67,26 @@ export default function LanguageSelect({
         );
 
     return (
-        <Select onValueChange={(e) => handleLang(e)} value={selectedLocale}>
-            <SelectTrigger
-                className={cn(
-                    mode === "short" ? "flex md:hidden w-[70px]" : "hidden md:flex w-[120px]",
-                    "border-none bg-transparent"
-                )}
-                id="framework">
-                <SelectValue className="bg-transparent" />
-            </SelectTrigger>
-            <SelectContent
-                className="bg-white dark:bg-black text-black dark:text-white"
-                position="popper">
-                {localizations?.map((lang) => (
-                    <SelectItem key={lang.locale} value={lang.locale}>
-                        {mode === "long" ? lang.label : lang.locale.toUpperCase()}
-                    </SelectItem>
-                ))}
-            </SelectContent>
-        </Select>
+        <form>
+            <Select onValueChange={(e) => handleLang(e)} value={selectedLocale}>
+                <SelectTrigger
+                    className={cn(
+                        mode === "short" ? "flex md:hidden w-[70px]" : "hidden md:flex w-[120px]",
+                        "border-none bg-transparent"
+                    )}
+                    id="framework">
+                    <SelectValue className="bg-transparent" />
+                </SelectTrigger>
+                <SelectContent
+                    className="bg-white dark:bg-black text-black dark:text-white"
+                    position="popper">
+                    {localizations?.map((lang) => (
+                        <SelectItem key={lang.locale} value={lang.locale}>
+                            {mode === "long" ? lang.label : lang.locale.toUpperCase()}
+                        </SelectItem>
+                    ))}
+                </SelectContent>
+            </Select>
+        </form>
     );
 }
