@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { getUserLocale } from "~/actions/locale";
+import { getLocale } from "~/actions/locale";
 import { MemoIconClouds } from "~/components/icons-cloud";
 import LetterPullup from "~/components/magicui/letter-pullup";
 import { metadataSettings } from "~/config/metadata";
 import { uses } from "~/config/uses";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const locale = (await getUserLocale()) as keyof typeof metadataSettings.home.title;
+    const locale = (await getLocale()) as keyof typeof metadataSettings.home.title;
     const title = metadataSettings.uses.title[locale];
     const description = metadataSettings.uses.description[locale];
 

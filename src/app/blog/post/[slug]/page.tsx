@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getUserLocale } from "~/actions/locale";
+import { getLocale, getUserLocale } from "~/actions/locale";
 import { getPostById } from "~/services/firestore/blogs";
 
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
     const params = await props.params;
     const slug = params.slug;
     const postId = slug;
-    const locale = await getUserLocale();
+    const locale = await getLocale();
 
     const post = await getPostById(postId, locale);
 

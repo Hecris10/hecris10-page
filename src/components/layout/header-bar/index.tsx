@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { getTranslations } from "next-intl/server";
-import { getUserLocale } from "~/actions/locale";
+import { getLocale } from "~/actions/locale";
 import { getIcon } from "~/components/icons";
 import { externalLinks } from "~/config/external-links";
 import LanguageSelect from "./language-select";
@@ -12,7 +12,7 @@ import { NavInternalLinks } from "./nav-internal-links";
 import { ThemeToggle } from "./theme-toggle";
 
 export const HeaderBar = async () => {
-    const selectedLocale = await getUserLocale();
+    const selectedLocale = await getLocale();
     const content = await getTranslations("HomePage");
     const title = content("title");
 

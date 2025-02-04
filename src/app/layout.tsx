@@ -1,9 +1,9 @@
-import { getMessages } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import { Inter as FontSans } from "next/font/google";
 import { HeaderBar } from "~/components/layout/header-bar";
 
 import { Metadata } from "next";
-import { getUserLocale } from "~/actions/locale";
+
 import { FooterBar } from "~/components/layout/footer-bar";
 import { Providers } from "~/components/providers";
 import { cn } from "~/lib/utils";
@@ -28,7 +28,7 @@ export default async function RootLayout({
     children: React.ReactNode;
 }>) {
     const messages = await getMessages();
-    const locale = await getUserLocale();
+    const locale = await getLocale();
 
     return (
         <html suppressHydrationWarning lang={locale}>
