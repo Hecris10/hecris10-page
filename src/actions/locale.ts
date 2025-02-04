@@ -1,6 +1,9 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
 import { cookies, headers } from "next/headers";
+import { redirect, RedirectType } from "next/navigation";
 import { defaultLocale, Locale, localizations } from "~/config/localization";
 
 export const getLocale = async () => {
@@ -24,8 +27,12 @@ export async function getUserLocale() {
     return cookiesStore.get(COOKIE_NAME)?.value || defaultLocale;
 }
 
-export async function setUserLocale(locale: Locale) {
+export async function setUserLocale(locale: Locale, path?: string) {
     const cookiesStore = await cookies();
     cookiesStore.set(COOKIE_NAME, locale);
     cookiesStore.set("locale", locale);
+    if (path) {
+        revalidatePath(path, "layout");
+        redirect(path, RedirectType.push);
+    }
 }

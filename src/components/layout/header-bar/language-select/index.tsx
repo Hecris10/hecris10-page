@@ -36,7 +36,6 @@ export default function LanguageSelect({
 
     const handleLang = async (lang: string) => {
         if (lang === locale) {
-            router.push(path);
         }
         if (localizations.findIndex((l) => l.locale === lang) !== -1) {
             startTransition(async () => {
@@ -49,6 +48,16 @@ export default function LanguageSelect({
     useEffect(() => {
         if (!isClient) setIsClient(true);
     }, [isClient]);
+
+    useEffect(() => {
+        console.log({ selectedLocale, locale });
+        if (selectedLocale !== locale) {
+            startTransition(async () => {
+                await setUserLocale(locale);
+            });
+        }
+    }, [selectedLocale, locale, path]);
+
 
     if (!isClient)
         return (
