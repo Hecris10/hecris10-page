@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { getUserLocale } from "~/actions/locale";
+import { getLocale, getUserLocale } from "~/actions/locale";
 import { metadataSettings } from "~/config/metadata";
 import { getBlogsByRange } from "~/services/firestore/blogs";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const locale = (await getUserLocale()) as keyof typeof metadataSettings.home.title;
+    const locale = (await getLocale()) as keyof typeof metadataSettings.home.title;
     const title = metadataSettings.blog.title[locale];
     const description = metadataSettings.blog.description[locale];
 
