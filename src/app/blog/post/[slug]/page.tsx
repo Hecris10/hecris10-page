@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getLocale, getUserLocale } from "~/actions/locale";
 import { getPostById } from "~/services/firestore/blogs";
 
-export async function generateMetadata(props: PageProps): Promise<Metadata> {
+export async function generateMetadata(props: AppPageProps): Promise<Metadata> {
     const params = await props.params;
     const slug = params.slug;
     const postId = slug;
@@ -15,7 +15,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     return { title: `Helaman Ewerton | ${post?.title}`, description: post?.short };
 }
 
-export default async function Blog(props: PageProps) {
+export default async function Blog(props: AppPageProps) {
     const params = await props.params;
     const locale = await getUserLocale();
     const postId = params.slug;

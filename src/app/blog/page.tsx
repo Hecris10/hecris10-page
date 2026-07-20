@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
     return { title: `Helaman Ewerton | ${title}`, description };
 }
 
-export default async function Blog(props: PageProps) {
+export default async function Blog(props: AppPageProps) {
     const searchParams = await props.searchParams;
     const page = searchParams.page ? parseInt(searchParams.page as string) : 1;
 
