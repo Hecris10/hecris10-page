@@ -19,6 +19,10 @@ export const internalLinks: InternalLink = {
             link: "/projects",
         },
         {
+            label: "Journey",
+            link: "/journey",
+        },
+        {
             label: "Uses",
             link: "/uses",
         },
@@ -39,6 +43,10 @@ export const internalLinks: InternalLink = {
         {
             label: "Projetos",
             link: "/projects",
+        },
+        {
+            label: "Jornada",
+            link: "/journey",
         },
         {
             label: "Usos",

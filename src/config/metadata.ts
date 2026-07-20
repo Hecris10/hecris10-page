@@ -29,6 +29,16 @@ export const metadataSettings = {
             pt: "Página de projetos",
         },
     },
+    journey: {
+        title: {
+            en: "Journey",
+            pt: "Jornada",
+        },
+        description: {
+            en: "The experiences, principles, and values that continue shaping me as a software engineer, leader, and lifelong learner.",
+            pt: "As experiências, princípios e valores que continuam me moldando como engenheiro de software, líder e eterno aprendiz.",
+        },
+    },
     uses: {
         title: {
             en: "Uses",
