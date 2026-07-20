@@ -1,15 +1,18 @@
 import { getRequestConfig } from "next-intl/server";
 import { cookies, headers } from "next/headers";
+import { resolveLocale } from "~/config/localization";
 
 export default getRequestConfig(async () => {
-    // Provide a static locale, fetch a user setting,
-    // read from `cookies()`, `headers()`, etc.
+    // Read the locale from the cookie first, then the browser's
+    // `Accept-Language` header, always falling back to the default locale so
+    // the message import below can never resolve to `undefined`.
     const headersList = await headers();
     const cookiesStore = await cookies();
 
-    let locale =
-        cookiesStore.get("locale")?.value ||
-        headersList.get("accept-language")?.split(",")[1].split(";")[0];
+    const locale = resolveLocale(
+        cookiesStore.get("locale")?.value,
+        headersList.get("accept-language")
+    );
 
     return {
         locale,
