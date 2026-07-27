@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { growthCards } from "./journey-data";
 import { cardBase, SectionHeading, staggerContainer, staggerItem } from "./ui";
 
@@ -18,12 +19,27 @@ function DetailRow({ label, children }: { label: string; children: string }) {
 }
 
 export function GrowthSection() {
+    const t = useTranslations("JourneyPage");
+
+    // Pull translated fields for each growth card.
+    const i18nCards = growthCards.map((_, i) => {
+        const n = i + 1;
+        return {
+            company: t(`growth${n}Company` as never),
+            role: t(`growth${n}Role` as never),
+            technologies: t(`growth${n}Technologies` as never).split(","),
+            learned: t(`growth${n}Learned` as never),
+            professionally: t(`growth${n}Professionally` as never),
+            personally: t(`growth${n}Personally` as never),
+        };
+    });
+
     return (
         <section className="flex w-full flex-col items-center gap-14">
             <SectionHeading
-                eyebrow="Where I've grown"
-                title="Professional Growth"
-                description="Each of these chapters stretched me technically — and, just as importantly, shaped the person doing the work."
+                eyebrow={t("growthEyebrow")}
+                title={t("growthHeading")}
+                description={t("growthDescription")}
             />
 
             <motion.div
@@ -32,11 +48,12 @@ export function GrowthSection() {
                 whileInView="show"
                 viewport={{ once: true, margin: "-80px" }}
                 className="grid w-full gap-6 lg:grid-cols-3">
-                {growthCards.map((card) => {
+                {growthCards.map((card, index) => {
                     const Icon = card.icon;
+                    const i18n = i18nCards[index];
                     return (
                         <motion.article
-                            key={card.company}
+                            key={index}
                             variants={staggerItem}
                             whileHover={{ y: -6 }}
                             transition={{ type: "spring", stiffness: 300, damping: 22 }}
@@ -52,17 +69,17 @@ export function GrowthSection() {
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
-                                            {card.company}
+                                            {i18n.company}
                                         </h3>
                                         <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                                            {card.role}
+                                            {i18n.role}
                                         </p>
                                     </div>
                                 </div>
 
                                 {/* Technologies */}
                                 <div className="flex flex-wrap gap-2">
-                                    {card.technologies.map((tech) => (
+                                    {i18n.technologies.map((tech) => (
                                         <span
                                             key={tech}
                                             className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800/60 dark:text-zinc-300">
@@ -72,11 +89,13 @@ export function GrowthSection() {
                                 </div>
 
                                 <div className="flex flex-col gap-5 border-t border-zinc-100 pt-5 dark:border-zinc-800">
-                                    <DetailRow label="What I learned">{card.learned}</DetailRow>
-                                    <DetailRow label="Professionally">
-                                        {card.professionally}
+                                    <DetailRow label={t("detailLabelLearned")}>{i18n.learned}</DetailRow>
+                                    <DetailRow label={t("detailLabelProfessionally")}>
+                                        {i18n.professionally}
                                     </DetailRow>
-                                    <DetailRow label="Personally">{card.personally}</DetailRow>
+                                    <DetailRow label={t("detailLabelPersonally")}>
+                                        {i18n.personally}
+                                    </DetailRow>
                                 </div>
                             </div>
                         </motion.article>

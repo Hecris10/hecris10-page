@@ -1,16 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { principles } from "./journey-data";
 import { cardBase, SectionHeading, staggerContainer, staggerItem } from "./ui";
 
 export function PrinciplesSection() {
+    const t = useTranslations("JourneyPage");
+    const principleKeys = [
+        { titleKey: "principle1Title", descKey: "principle1Description" },
+        { titleKey: "principle2Title", descKey: "principle2Description" },
+        { titleKey: "principle3Title", descKey: "principle3Description" },
+    ];
+
     return (
         <section className="flex w-full flex-col items-center gap-14">
             <SectionHeading
-                eyebrow="What guides me"
-                title="Guiding Principles"
-                description="Three convictions sit underneath every decision I make — in the code I write and the way I try to work with people."
+                eyebrow={t("principlesEyebrow")}
+                title={t("principlesHeading")}
+                description={t("principlesDescription")}
             />
 
             <motion.div
@@ -19,11 +27,12 @@ export function PrinciplesSection() {
                 whileInView="show"
                 viewport={{ once: true, margin: "-80px" }}
                 className="grid w-full gap-6 md:grid-cols-3">
-                {principles.map((principle) => {
+                {principles.map((principle, idx) => {
                     const Icon = principle.icon;
+                    const keys = principleKeys[idx];
                     return (
                         <motion.article
-                            key={principle.title}
+                            key={keys.titleKey}
                             variants={staggerItem}
                             whileHover={{ y: -8 }}
                             transition={{ type: "spring", stiffness: 300, damping: 22 }}
@@ -36,11 +45,11 @@ export function PrinciplesSection() {
                             </div>
 
                             <h3 className="relative text-xl font-semibold text-zinc-900 dark:text-white">
-                                {principle.title}
+                                {t(keys.titleKey)}
                             </h3>
 
                             <p className="relative text-[15px] leading-relaxed text-zinc-500 dark:text-zinc-400">
-                                {principle.description}
+                                {t(keys.descKey)}
                             </p>
                         </motion.article>
                     );

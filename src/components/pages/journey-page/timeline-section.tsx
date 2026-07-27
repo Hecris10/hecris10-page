@@ -2,16 +2,21 @@
 
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { cn } from "~/lib/utils";
-import { timeline } from "./journey-data";
+import { timelineCount } from "./journey-data";
 import { cardBase, easeOut, SectionHeading } from "./ui";
 
 function TimelineEntry({
-    item,
     index,
+    year,
+    title,
+    description,
 }: {
-    item: (typeof timeline)[number];
     index: number;
+    year: string;
+    title: string;
+    description: string;
 }) {
     const isLeft = index % 2 === 0;
 
@@ -40,13 +45,13 @@ function TimelineEntry({
                 )}>
                 <div className={`${cardBase} p-6 hover:shadow-lg md:p-7`}>
                     <span className="inline-flex items-center rounded-full bg-teal-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-teal-600 dark:text-teal-400">
-                        {item.year}
+                        {year}
                     </span>
                     <h3 className="mt-3 text-lg font-semibold text-zinc-900 md:text-xl dark:text-white">
-                        {item.title}
+                        {title}
                     </h3>
                     <p className="mt-2 text-[15px] leading-relaxed text-zinc-500 dark:text-zinc-400">
-                        {item.description}
+                        {description}
                     </p>
                 </div>
             </motion.div>
@@ -55,6 +60,7 @@ function TimelineEntry({
 }
 
 export function TimelineSection() {
+    const t = useTranslations("JourneyPage");
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -63,12 +69,22 @@ export function TimelineSection() {
     const scaleY = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.6 });
     const glowY = useTransform(scaleY, [0, 1], ["0%", "100%"]);
 
+    // Pull each timeline entry's translated title + description from i18n.
+    const i18nFields = Array.from({ length: timelineCount }, (_, i) => {
+        const n = i + 1;
+        return {
+            year: t(`timeline${n}Year` as never),
+            title: t(`timeline${n}Title` as never),
+            description: t(`timeline${n}Description` as never),
+        };
+    });
+
     return (
         <section className="flex w-full flex-col items-center gap-16">
             <SectionHeading
-                eyebrow="The path so far"
-                title="My Journey Timeline"
-                description="Every step built on the last — from a first curious line of code toward the engineer I'm still becoming."
+                eyebrow={t("timelineEyebrow")}
+                title={t("timelineHeading")}
+                description={t("timelineDescription")}
             />
 
             <div ref={containerRef} className="relative w-full max-w-4xl">
@@ -86,8 +102,14 @@ export function TimelineSection() {
                 />
 
                 <div className="flex flex-col gap-12 md:gap-16">
-                    {timeline.map((item, index) => (
-                        <TimelineEntry key={item.title} item={item} index={index} />
+                    {i18nFields.map((entry, index) => (
+                        <TimelineEntry
+                            key={index}
+                            index={index}
+                            year={entry.year}
+                            title={entry.title}
+                            description={entry.description}
+                        />
                     ))}
                 </div>
             </div>

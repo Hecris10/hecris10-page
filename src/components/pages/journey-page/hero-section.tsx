@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { ArrowDown } from "lucide-react";
 import { easeOut, textGradient } from "./ui";
 
@@ -34,6 +35,8 @@ function Blob({
 }
 
 export function HeroSection() {
+    const t = useTranslations("JourneyPage");
+
     return (
         <section className="relative flex min-h-[78vh] w-full items-center justify-center overflow-hidden rounded-[2.5rem] border border-zinc-200/70 bg-gradient-to-b from-zinc-50 to-white px-6 py-24 dark:border-zinc-800/80 dark:from-zinc-900 dark:to-zinc-950">
             {/* Animated gradient background */}
@@ -70,7 +73,7 @@ export function HeroSection() {
                     transition={{ duration: 0.7, ease: easeOut }}
                     className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-200/80 bg-white/70 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-zinc-600 backdrop-blur dark:border-zinc-700/80 dark:bg-white/5 dark:text-zinc-300">
                     <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-                    A personal reflection
+                    {t("heroEyebrow")}
                 </motion.span>
 
                 <motion.h1
@@ -78,7 +81,7 @@ export function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.1, ease: easeOut }}
                     className="text-5xl font-bold tracking-tight text-zinc-900 md:text-7xl dark:text-white">
-                    My <span className={textGradient}>Journey</span>
+                    {t("heroTitlePrefix")} <span className={textGradient}>{t("heroTitleHighlight")}</span>
                 </motion.h1>
 
                 <motion.p
@@ -86,8 +89,7 @@ export function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.25, ease: easeOut }}
                     className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 md:text-xl dark:text-zinc-300">
-                    The experiences, principles, and values that continue shaping me as a software
-                    engineer, leader, and lifelong learner.
+                    {t("heroSubtitle")}
                 </motion.p>
 
                 <motion.div
@@ -95,7 +97,7 @@ export function HeroSection() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 0.6 }}
                     className="mt-14 flex flex-col items-center gap-2 text-zinc-400 dark:text-zinc-500">
-                    <span className="text-xs uppercase tracking-[0.2em]">Scroll</span>
+                    <span className="text-xs uppercase tracking-[0.2em]">{t("heroScroll")}</span>
                     <motion.span
                         animate={{ y: [0, 8, 0] }}
                         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}>
