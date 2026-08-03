@@ -41,7 +41,7 @@ export const MobileSideBarMenu = ({ children }: { children: ReactNode }) => {
                         <Link
                             onClick={onClose}
                             className={cn(
-                                "flex relative text-lg justify-center items-center gap-1 overflow-hidden py-2 px-3 text-zinc-800 dark:text-zinc-300 font-['Roboto'] font-medium leading-6",
+                                "flex relative text-lg justify-center items-center gap-1 overflow-hidden py-2 px-3 text-zinc-800 dark:text-zinc-300 font-medium leading-6",
                                 pathname === link.link && "font-bold text-zinc-900 underline"
                             )}
                             key={link.link}

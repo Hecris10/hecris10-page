@@ -13,7 +13,9 @@
         "emailSubscribeConfirmationToast": "You have successfully subscribed!",
         "introText": "Highly skilled Software Engineer specializing in Javascript, Typescript, React, and CSS. Proven track record of delivering high-quality web applications that create efficient and user-friendly solutions. I have played a crucial role in contributing to the success of companies such as BASF, Labvantage Inc., Emive, and PepsiCo. My experience includes building projects from scratch and joining ongoing initiatives to refactor, rebuild, and optimize for superior performance. With a keen eye for detail and a commitment to excellence, I bring a valuable blend of technical expertise and collaborative problem-solving to every project.",
         "workCardTitle": "Work",
+        "currentBadge": "Current",
         "skillsCardTitle": "Skills",
+        "skillExperienceYears": "{years, plural, one {# year} other {# years}}",
         "articleLinkName": "Read article",
         "resumeLink": "Resume"
     },

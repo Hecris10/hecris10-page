@@ -13,7 +13,9 @@
         "emailSubscribeConfirmationToast": "Você se inscreveu com sucesso!",
         "introText": "Desenvolvedor de Software altamente qualificado, especializado em JavaScript, TypeScript, React e CSS. Histórico comprovado de entrega de aplicações web de alta qualidade que criam soluções eficientes e amigáveis para o usuário. Desempenhei um papel crucial na contribuição para o sucesso de empresas como BASF, Labvantage Inc., Emive e PepsiCo. Minha experiência inclui construir projetos do zero, bem como participar de iniciativas em andamento para refatorar, reconstruir e otimizar para um desempenho superior. Com um olhar atento aos detalhes e um compromisso com a excelência, trago uma combinação valiosa de expertise técnica e resolução colaborativa de problemas para cada projeto.",
         "workCardTitle": "Experiência",
+        "currentBadge": "Atual",
         "skillsCardTitle": "Principais experiências",
+        "skillExperienceYears": "{years, plural, one {# ano} other {# anos}}",
         "articleLinkName": "Leia mais",
         "resumeLink": "Currículo"
     },

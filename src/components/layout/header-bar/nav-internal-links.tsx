@@ -13,11 +13,11 @@ export const NavInternalLinks = () => {
 
     return (
         <div className="hidden md:flex gap-4 align-middle ">
-            {internalLinks?.map((link, index) => (
+            {internalLinks?.map((link) => (
                 <Link
                     prefetch
                     className={cn(
-                        "flex relative justify-center items-center gap-1 overflow-hidden py-2 px-3 text-zinc-800 dark:text-zinc-300 font-['Roboto'] font-medium leading-6",
+                        "flex relative justify-center items-center gap-1 overflow-hidden py-2 px-3 text-zinc-800 dark:text-zinc-300 font-medium leading-6",
                         pathname === link.link && "font-bold"
                     )}
                     key={link.link}

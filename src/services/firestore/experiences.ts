@@ -51,10 +51,11 @@ export async function getExperiences(locale: string) {
 }
 
 export type WorkExperienceItem = {
+    id: string;
     title: string;
     company: string;
-    initialDate: string;
-    finalDate?: string;
+    initialDate: unknown;
+    finalDate?: unknown;
     image: string;
     isCurrent: boolean;
 };
