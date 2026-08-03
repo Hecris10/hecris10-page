@@ -23,8 +23,8 @@ export const internalLinks: InternalLink = {
             link: "/journey",
         },
         {
-            label: "Uses",
-            link: "/uses",
+            label: "Tech Stack",
+            link: "/tech-stack",
         },
         {
             label: "Blog",
@@ -49,8 +49,8 @@ export const internalLinks: InternalLink = {
             link: "/journey",
         },
         {
-            label: "Usos",
-            link: "/uses",
+            label: "Stack Técnica",
+            link: "/tech-stack",
         },
         {
             label: "Blog",

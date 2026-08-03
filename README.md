@@ -67,4 +67,4 @@ npm run export
 
 ## Contact
 
-For any questions or inquiries, please contact me at ewerton.webdev@gmail.com.
+For any questions or inquiries, please contact me at helamaewerton@gmail.com.

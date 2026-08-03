@@ -69,11 +69,10 @@
 }
 
 body {
-    @apply text-black dark:text-white h-full overflow-y-auto;
+    @apply text-black dark:text-white min-h-screen;
 }
 
 main {
-    @apply overflow-y-auto;
     min-height: calc(100lvh - 170px);
 }
 

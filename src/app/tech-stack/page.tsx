@@ -9,14 +9,14 @@ import { uses } from "~/config/uses";
 
 export async function generateMetadata(): Promise<Metadata> {
     const locale = (await getLocale()) as keyof typeof metadataSettings.home.title;
-    const title = metadataSettings.uses.title[locale];
-    const description = metadataSettings.uses.description[locale];
+    const title = metadataSettings.techStack.title[locale];
+    const description = metadataSettings.techStack.description[locale];
 
     return { title: `Helaman Ewerton | ${title}`, description };
 }
 
-export default function Uses() {
-    const content = useTranslations("UsesPage");
+export default function TechStack() {
+    const content = useTranslations("TechStackPage");
     const title = content("title");
     const subtitle = content("subtitle");
 

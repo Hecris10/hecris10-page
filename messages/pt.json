@@ -27,8 +27,8 @@
         "linkedinText": "Conecte-se comigo no LinkedIn",
         "resumeText": "Ver meu Currículo"
     },
-    "UsesPage": {
-        "title": "Tecnologias que eu uso e recomendo",
+    "TechStackPage": {
+        "title": "Stack Técnica",
         "subtitle": "Passei anos trabalhando com várias tecnologias e ferramentas para construir aplicações web de alta qualidade. Aqui estão algumas das ferramentas e tecnologias que eu uso e recomendo."
     },
     "BlogPage": {

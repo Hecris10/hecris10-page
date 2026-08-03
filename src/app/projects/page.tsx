@@ -18,8 +18,8 @@ export default async function Projects() {
 
     return (
         <div className="w-full flex flex-wrap flex-col md:flex-row">
-            {projects.map((project, index) => (
-                <div className="w-full md:w-1/2 lg:w-1/3 p-4" key={index}>
+            {projects.map((project) => (
+                <div className="w-full md:w-1/2 lg:w-1/3 p-4" key={project.id}>
                     <ProjectCard project={project} />
                 </div>
             ))}

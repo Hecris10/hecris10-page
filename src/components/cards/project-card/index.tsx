@@ -22,14 +22,16 @@ export const ProjectCard = async ({ project }: { project: Project }) => {
                         project.description.length > 450 ? "..." : ""
                     }`}
                 </p>
-                <div className="w-full flex gap-2 text-zinc-700 dark:text-zinc-400">
-                    {" "}
-                    {/* Adjust the gap value as needed */}
-                    <div>
+                <div className="w-full min-w-0 flex items-start gap-2 text-zinc-700 dark:text-zinc-400">
+                    <div className="shrink-0 pt-0.5">
                         <LinkIcon className="w-[20px] h-[20px] " />
                     </div>
-                    <div>
-                        <Link href={project.link} target="_blank" className="">
+                    <div className="min-w-0">
+                        <Link
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="break-all">
                             {project.link}
                         </Link>
                     </div>

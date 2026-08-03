@@ -21,9 +21,9 @@ export const LinksSection = ({ className }: { className?: string }) => {
                         target="_blank"
                         key={index}
                         href={link.link}
-                        className="my-auto flex gap-2">
-                        {getIcon(link.icon, "w-6 h-6 cursor-pointer")}
-                        <p>
+                        className="my-auto flex min-w-0 items-center gap-2">
+                        {getIcon(link.icon, "w-6 h-6 shrink-0 cursor-pointer")}
+                        <p className="min-w-0 break-words">
                             {link.icon === "github"
                                 ? githubText
                                 : link.icon === "linkedin"
@@ -34,12 +34,12 @@ export const LinksSection = ({ className }: { className?: string }) => {
                 ))}
             </section>
             <section className="flex flex-col gap-3 mt-3 md:mt-8">
-                <Link className="flex gap-3" href={emailLink}>
-                    <Mail className="text-zinc-400 dark:text-zinc-500 my-auto" />
-                    <p>{email}</p>
+                <Link className="flex min-w-0 items-center gap-3" href={emailLink}>
+                    <Mail className="shrink-0 text-zinc-400 dark:text-zinc-500" />
+                    <p className="min-w-0 break-all">{email}</p>
                 </Link>
                 <Link
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-200 bg-white py-2.5 px-4 text-sm font-semibold text-zinc-800 transition-colors hover:border-teal-400 hover:bg-teal-50 hover:text-teal-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:border-teal-500/60 dark:hover:bg-teal-500/10 dark:hover:text-teal-300"
+                    className="inline-flex items-center justify-center gap-2 whitespace-normal rounded-full border border-zinc-200 bg-white py-2.5 px-4 text-center text-sm font-semibold text-zinc-800 transition-colors hover:border-teal-400 hover:bg-teal-50 hover:text-teal-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:border-teal-500/60 dark:hover:bg-teal-500/10 dark:hover:text-teal-300"
                     target="_blank"
                     rel="noopener noreferrer"
                     href={personalData.resume}>

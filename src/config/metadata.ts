@@ -39,14 +39,14 @@ export const metadataSettings = {
             pt: "As experiências, princípios e valores que continuam me moldando como engenheiro de software, líder e eterno aprendiz.",
         },
     },
-    uses: {
+    techStack: {
         title: {
-            en: "Uses",
-            pt: "Usos",
+            en: "Tech Stack",
+            pt: "Stack Técnica",
         },
         description: {
-            en: "Uses page",
-            pt: "Página de casos usos",
+            en: "Tech Stack page",
+            pt: "Página da stack técnica",
         },
     },
     blog: {
