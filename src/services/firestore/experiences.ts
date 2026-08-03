@@ -1,6 +1,22 @@
 import { collection, getDoc, getDocs } from "firebase/firestore";
 import { db } from "~/lib/firebase";
 
+function getDateTime(date: unknown) {
+    if (!date) return 0;
+
+    if (date instanceof Date) return date.getTime();
+
+    if (typeof date === "string" || typeof date === "number") {
+        return new Date(date).getTime();
+    }
+
+    if (typeof date === "object" && "toDate" in date && typeof date.toDate === "function") {
+        return date.toDate().getTime();
+    }
+
+    return 0;
+}
+
 export async function getExperiences(locale: string) {
     const experiencesSnapshot = await getDocs(collection(db, "experiences"));
     const experiences = await Promise.all(
@@ -17,6 +33,7 @@ export async function getExperiences(locale: string) {
                 ...experienceData,
                 id: docSnapshot.id,
                 company: companyData.name,
+                initialDate: experienceData.initialDate,
                 finalDate: experienceData.finalDate,
                 image: companyData.image,
                 isCurrent: experienceData.isCurrent,
@@ -24,11 +41,12 @@ export async function getExperiences(locale: string) {
             };
         })
     );
-    //order by initial date desc, but if isCurrent is true, put it first
+
+    // Order by initial date desc, but if isCurrent is true, put it first.
     return experiences.sort((a, b) => {
-        if (a.isCurrent) return -1;
-        if (b.isCurrent) return 1;
-        return new Date(b.finalDate).getTime() - new Date(a.finalDate).getTime();
+        if (a.isCurrent !== b.isCurrent) return a.isCurrent ? -1 : 1;
+
+        return getDateTime(b.initialDate) - getDateTime(a.initialDate);
     });
 }
 
