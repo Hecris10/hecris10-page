@@ -7,7 +7,8 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
 import { cn } from "~/lib/utils";
-import { type Project, getProjectDate } from "~/services/firestore/projects";
+import { getProjectDate } from "~/lib/date-utils";
+import type { Project } from "~/services/firestore/projects";
 import { easeOut } from "~/components/pages/journey-page/ui";
 
 interface ProjectsTimelineProps {
