@@ -16,6 +16,7 @@
         "currentBadge": "Current",
         "skillsCardTitle": "Skills",
         "skillExperienceYears": "{years, plural, one {# year} other {# years}}",
+        "skillSince": "Since",
         "articleLinkName": "Read article",
         "resumeLink": "Resume"
     },
@@ -35,6 +36,12 @@
     },
     "BlogPage": {
         "subtitle": "I write articles on various topics related to software engineering, web development, and technology. Here are some of my latest articles."
+    },
+    "ProjectsPage": {
+        "timelineEyebrow": "Things I've built",
+        "timelineHeading": "My Projects",
+        "timelineDescription": "A chronological look at what I've shipped — each one a chance to learn something new and put it to work.",
+        "present": "Present"
     },
     "JourneyPage": {
         "heroEyebrow": "A personal reflection",

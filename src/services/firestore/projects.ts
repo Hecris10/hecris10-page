@@ -17,6 +17,12 @@ function getDateTime(date: unknown) {
     return 0;
 }
 
+/** Best-effort extraction of a project's date as a JS Date (or null). */
+export function getProjectDate(project: Pick<Project, "publishedAt" | "createdAt" | "initialDate">): Date | null {
+    const ms = getDateTime(project.publishedAt ?? project.createdAt ?? project.initialDate);
+    return ms > 0 ? new Date(ms) : null;
+}
+
 export async function getProjects(locale: string) {
     const projects = (await getDocs(collection(db, "projects"))).docs.map((doc) => {
         const data = doc.data() as FirestoreProject;
